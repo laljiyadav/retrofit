@@ -1,0 +1,19 @@
+STEP :1
+GET
+http://api.openweathermap.org/data//2.5/weather?q=Sunnycval,USA
+gradle file
+
+compile'com.squareup'compile 'com.squareup.retrofit2:retrofit:(insert latest version)'
+compile 'com.google.code.gson:gson:2.3.1'
+
+STEP :2
+Create Interface
+
+public interface GetWeatherApi
+{
+@GET("/data/2.5/weather")
+void getWeatherFromApi(@Query("q")String cityName,Callback<WeatherData> callback
+);
+@GET("/data/2.5/weather")
+WeatherData getWeatherFromApiSync( @Query("q") String cityName);
+}
